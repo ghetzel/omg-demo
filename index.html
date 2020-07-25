@@ -1,0 +1,195 @@
+---
+page:
+  upperlinks:
+  - name: "Login"
+    href: "#login"
+
+  - name: "Help"
+    href: "#help"
+
+  - name: "610-550-8798"
+
+  navlinks:
+  - name: "Products"
+    href: "#products"
+
+  - name: "Solutions"
+    href: "#solutions"
+
+  - name: "Company"
+    href: "#company"
+
+  - name: "Resources"
+    href: "#resources"
+
+  actions:
+  - name: Connect
+    img:  connect
+    desc: '{{ lipsum 12 34 }}'
+
+  - name: Optimize
+    img:  optimize
+    desc: '{{ lipsum 13 56 }}'
+
+  - name: Personalize
+    img:  personalize
+    desc: '{{ lipsum 13 30 }}'
+
+  socials:
+  - name: Facebook
+    url:  https://facebook.com
+    icon: facebook
+
+  - name: Twitter
+    url:  https://twitter.com
+    icon: twitter
+
+  - name: LinkedIn
+    url:  https://linkedin.com
+    icon: linkedin
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>OMG :: {{ lipsum 1 }}. {{ lipsum 1 2 }}. {{ lipsum 1 4 }}.</title>
+
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css" crossorigin="anonymous" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk">
+  <link rel="stylesheet" href="assets/css/landing.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto">
+        {{ range $ul := $.page.upperlinks }}
+        <li class="nav-item">
+          {{ if $ul.href }}
+          <a class="nav-link" href="{{ $ul.href }}">{{ $ul.name }}</a>
+          {{ else }}
+          <span class="navbar-text">{{ $ul.name }}</span>
+          {{ end }}
+        </li>
+        {{ end }}
+      </ul>
+
+    </div>
+  </nav>
+
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto">
+        {{ range $navlink := $.page.navlinks }}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ $navlink.href }}">{{ $navlink.name }}</a>
+        </li>
+        {{ end }}
+        <li class="nav-item">
+          <span class="navbar-text">
+            <button class="btn btn-walkthrough">Request a Demo</button>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero" class="container">
+    <div class="row">
+      <img class="hero-image col-4" src="assets/img/apple-iphone.png">
+      <div class="col-8 carousel slide" data-ride="carousel" id="heroCarousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="d-block w-100">
+              <h1>{{ lipsum 8 }}</h1>
+              <p>{{ lipsum 19 }}<p>
+            </div>
+          </div>
+        </div>
+
+        <ol class="carousel-indicators">
+          <li data-target="#heroCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#heroCarousel" data-slide-to="1"></li>
+          <li data-target="#heroCarousel" data-slide-to="2"></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="intro" class="container">
+    <h2>{{ lipsum 13 18 }}</h2>
+    <p>{{ lipsum 25 36 }}</p>
+  </section>
+
+  <section class="actions" class="container">
+    {{ range $action := $.page.actions }}
+    <div class="action">
+      <img src="assets/img/action-{{ $action.img }}.png">
+      <h3>{{ $action.name }}</h3>
+      <p>{{ $action.desc }}</p>
+    </div>
+    {{ end }}
+  </section>
+
+  <section class="brands" class="container">
+    <div class="row">
+      <div class="col-6">
+        <h3>Trusted by the world's <wbr>most successful brands</h3>
+        <p>{{ lipsum 17 92 }}.</p>
+      </div>
+
+      <div class="col-6 carousel slide" data-ride="carousel" id="brandsCarousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="brands-carousel-item d-block w-100">
+              <img src="assets/img/logo-showtime.png">
+              <p>{{ lipsum 19 }}.</p>
+            </div>
+          </div>
+        </div>
+
+        <ol class="carousel-indicators">
+          <li data-target="#brandsCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#brandsCarousel" data-slide-to="1"></li>
+          <li data-target="#brandsCarousel" data-slide-to="2"></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="demo" class="container">
+    <h4>Ready for a personal walkthrough?</h4>
+    <button class="btn btn-walkthrough">Request a Demo</button>
+  </section>
+
+  <footer>
+    <div class="social-links">
+      {{ range $social := $.page.socials }}
+      <a href="{{ $social.url }}" title="{{ $social.title }}"><img src="assets/img/social-{{ $social.icon }}.png"></a>
+      {{ end }}
+    </div>
+
+    <p>&copy;{{ now `2006` }} {{ lipsum 2 }}. All Rights Reserved.</p>
+
+    <div class="row links">
+      <div class="col-4">
+        <a href="#link1">Link 1</a>
+        <a href="#link2">Link 2</a>
+      </div>
+
+      <div class="col-4">
+        <a href="#link3">Link 3</a>
+        <a href="#link4">Link 4</a>
+      </div>
+
+      <div class="col-4">
+        <a href="#link5">Link 5</a>
+        <a href="#link6">Link 6</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="text/javascript" src="assets/js/jquery-3.5.1.min.js" crossorigin="anonymous" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2"></script>
+  <script type="text/javascript" src="assets/js/bootstrap.bundle.min.js" crossorigin="anonymous" integrity="sha384-1CmrxMRARb6aLqgBO7yyAxTOQE2AKb9GfXnEo760AUcUmFx3ibVJJAzGytlQcNXd"></script>
+</body>
+</html>

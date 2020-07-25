@@ -1,0 +1,92 @@
+body {
+  padding:          0 20vw;
+  background-color: #CEE8E6;
+}
+
+.hero .carousel {
+  text-align: left;
+}
+
+.hero .carousel h1 {
+  margin-top:    1.5em;
+  margin-bottom: 0.5em;
+}
+
+.hero-image {
+  height:     30vh;
+  object-fit: contain;
+}
+
+section {
+  text-align: center;
+}
+
+section.intro {
+  margin-top: 2em;
+  padding:    0 10vw;
+}
+
+section.actions {
+  display:         flex;
+  margin:          4em 0;
+  justify-content: center;
+}
+
+section.actions > .action {
+  display:          flex;
+  flex-direction:   column;
+  justify-content:  center;
+  align-items:      center;
+  background-color: #FFFFFF;
+  border-radius:    1vw;
+  padding:          2vw;
+  margin:           0 14px;
+  width:            305px;
+  height:           360px;
+}
+
+section.actions > .action img {
+  width:         112px;
+  height:        112px;
+  object-fit:    contain;
+  margin-bottom: 1vh;
+}
+
+section.brands :first-child {
+  text-align: left;
+}
+
+section.brands .brands-carousel-item {
+  display:         flex !important;
+  flex-direction:  row;
+  justify-content: stretch;
+  align-items:     stretch;
+}
+
+section.brands .brands-carousel-item > img {
+  flex:    1;
+  display: block;
+  object-fit: contain;
+}
+
+section.brands .brands-carousel-item > p {
+  flex:       4;
+  display:    block;
+  text-align: left;
+  margin:     0 2em;
+}
+
+footer {
+  text-align:     center;
+  display:        flex;
+  flex-direction: column;
+  align-items:    center;
+}
+
+footer .links {
+  width: 100%;
+}
+
+footer .links div > a {
+  display: block;
+}
