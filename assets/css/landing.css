@@ -1,13 +1,64 @@
 body {
+  position:         relative;
   padding:          0;
   margin:           0;
-  background-color: #CEE8E6;
-  font-family:      'Roboto', sans-serif;
+  background-color: #F7F7F7;
+  color:            #3E3F40;
+  font-family:      'Roboto Medium', sans-serif;
+  overflow-x:       hidden;
+}
+
+.btn {
+  height:           42px;
+  border:           1px solid #FFFFFF;
+  border-radius:    21px;
+  background-color: #4362AD;
+  color:            #FFFFFF;
+  padding:          0.25em 1.75em;
+  font-family:      'Roboto Light';
+  font-size:        16px;
+  font-weight:      600;
+}
+
+.carousel-indicators li {
+  width:         14px;
+  height:        14px;
+  border-radius: 7px;
+  border:        1px solid rgba(0, 0, 0, 0.1);
+  opacity:       1.0;
+}
+
+.carousel-indicators .active {
+  background-color: #29B3A2;
+}
+
+.btn:hover {
+  background-color: #FFFFFF !important;
+  color:            #4362AD;
+  border-color:     #4362AD;
 }
 
 .content {
-  width:  1100px;
-  margin: 0 auto;
+  background-image:    url("../img/top-wave.png"), url("../img/bottom-wave.png");
+  background-position: center top -150px, center bottom -150px;
+  background-size:     contain;
+  background-repeat:   no-repeat;
+  width:               100vw;
+}
+
+.content > section {
+  width:      1100px;
+  margin:     0 auto;
+}
+
+.hero-under {
+  position:         absolute;
+  top:              0;
+  left:             0;
+  right:            0;
+  height:           1162px;
+  background-color: #CEE9E6;
+  z-index:          -10;
 }
 
 #overlay {
@@ -18,26 +69,82 @@ body {
   left:       0;
   right:      0;
   z-index:    10000;
-  opacity:    1.0;
+  opacity:    0.5;
 }
 
 #overlay:hover {
-  opacity:    0.1;
+  opacity:    1.0;
+}
+
+h1 {
+  margin:         0;
+  font-size:      50px;
+  font-family:    'Roboto';
+  font-weight:    700;
+}
+
+h2 {
+  margin:         0;
+  font-size:      24px;
+  font-family:    'Roboto Light';
+}
+
+h3 {
+  margin:         0;
+  font-size:      40px;
+  font-family:    'Roboto';
+  font-weight:    700;
+}
+
+h4 {
+  margin:         0;
+  font-size:      30px;
+  font-family:    'Roboto Light';
 }
 
 .nav-upperlinks {
-  background-color: red;
-  height: 29px;
+  background-color: #DBEFEC;
+  height:           29px;
+  font-size:        11px;
+}
+
+.nav-upperlinks li {
+  width:      128px;
+  text-align: right;
+}
+
+nav li {
+  color:          #3E3F40;
+  text-transform: uppercase;
+  height:         100%;
 }
 
 .nav-links {
-  background-color: blue;
-  height: 65px;
+  background-color: #FFFFFF;
+  height:           65px;
+}
+
+.nav-links li {
+  width:      128px;
+}
+
+.nav-links li.nav-demo {
+  width:       auto;
+  margin-left: 1em;
+}
+
+.nav-links .nav-link,
+.nav-links .navbar-text {
+  line-height:      65px;
+  font-size:        15px;
+  font-family:      'Roboto';
+  font-weight:      400;
 }
 
 .hero {
-  display:         flex;
-  justify-content: stretch;
+  display:          flex;
+  justify-content:  stretch;
+  color:            #FFFFFF;
 }
 
 .hero .hero-image {
@@ -49,36 +156,50 @@ body {
 }
 
 .hero .carousel {
-  flex:         4;
-  text-align:   left;
-  padding-left: 66px;
+  flex:          4;
+  text-align:    left;
+  padding-left:  4em;
+  padding-right: 3em;
 }
 
 .hero .carousel h1 {
   margin-top:     2.8em;
-  margin-bottom:  0;
-  font-size:      50px;
-  font-weight:    bold;
+  margin-bottom:  0.5em;
+}
+
+.hero .carousel h2 {
+  margin:         0;
+}
+
+.hero .carousel-indicators {
+  position:        relative;
+  margin:          0;
+  justify-content: flex-start;
+  margin-top:      68px;
 }
 
 section {
-  background-color: orangered;
   text-align:       center;
 }
 
-section.intro {
-  margin-top: 2.5em;
-  padding:    0 10vw;
+section h3 {
+  margin-bottom: 0.4em;
 }
 
-section.intro h2 {
+section.intro {
+  margin-top:    58px;
+  margin-bottom: 96px;
+}
+
+section.intro h3 {
   font-size: 28pt;
+  color:      #4262AC;
 }
 
 section.actions {
   display:         flex;
-  margin:          4em 0;
   justify-content: center;
+  margin-bottom:   142px;
 }
 
 section.actions > .action {
@@ -87,22 +208,73 @@ section.actions > .action {
   justify-content:  center;
   align-items:      center;
   background-color: #FFFFFF;
-  border-radius:    1vw;
-  padding:          2vw;
+  border-radius:    16px;
+  padding:          58px;
   margin:           0 14px;
-  width:            305px;
   height:           360px;
+  width:            312px;
 }
 
 section.actions > .action img {
-  width:         112px;
-  height:        112px;
   object-fit:    contain;
-  margin-bottom: 1vh;
+  margin-bottom: 24px;
 }
 
-section.brands :first-child {
-  text-align: left;
+section.actions > .action h3 {
+  font-weight: 700;
+  font-size:   25px;
+  color:       #4262ac;
+}
+
+section.actions > .action p {
+  font-size:   19px;
+  font-family: 'Roboto Light';
+  margin:      0;
+  line-height: 22px;
+}
+
+section.brands {
+  margin-bottom:   275px;
+}
+
+section.brands > .row {
+  display:         flex;
+  flex-direction:  row;
+  justify-content: center;
+  align-items:     stretch;
+  padding:         0 54px;
+}
+
+section.brands > .row > * {
+  flex: 1;
+  padding: 0;
+}
+
+section.brands > .row > :first-child {
+  text-align:      left;
+  display:         flex;
+  justify-content: center;
+  flex-direction:  column;
+  margin-left:     0px;
+}
+
+section.brands > .row > :first-child h3 {
+  font-size:   34px;
+}
+
+section.brands > .row > :first-child h4 {
+  font-size:   18px;
+  font-weight: 600;
+}
+
+section.brands .carousel {
+  background-color: #DAEFEC;
+  border-radius:    10px;
+  height:           278px;
+  display:          flex;
+  justify-content:  center;
+  flex-direction:   column;
+  margin-left:      -30px;
 }
 
 section.brands .brands-carousel-item {
@@ -110,32 +282,73 @@ section.brands .brands-carousel-item {
   flex-direction:  row;
   justify-content: stretch;
   align-items:     stretch;
+  padding:         38px;
 }
 
 section.brands .brands-carousel-item > img {
-  flex:    1;
-  display: block;
-  object-fit: contain;
+  flex:          1;
+  display:       block;
+  object-fit:    contain;
+  margin-right:  38px;
 }
 
 section.brands .brands-carousel-item > p {
-  flex:       4;
-  display:    block;
-  text-align: left;
-  margin:     0 2em;
+  flex:        3;
+  display:     block;
+  text-align:  left;
+  margin:      0;
+  font-family: 'Roboto Light';
+  font-size:   23px;
+  line-height: 26px;
+  font-weight: 600;
+}
+
+section.demo {
+  color:          #FFFFFF;
+  height:         144px;
+}
+
+section.demo h4 {
+  margin-bottom: 42px;
+  font-size:     26px;
+}
+
+section.demo .btn {
+  background-color: #4362AD;
 }
 
 footer {
-  text-align:     center;
-  display:        flex;
-  flex-direction: column;
-  align-items:    center;
+  background-color: #293E66;
+  color:            #FFFFFF;
+  font-family:      'Roboto Light';
+  text-align:       center;
+  display:          flex;
+  flex-direction:   column;
+  align-items:      center;
+  font-weight:      600;
+}
+
+footer .social-links {
+  margin: 38px 0;
+}
+
+footer .social-links a {
+  display: inline-block;
+  margin:  0 4px;
+}
+
+footer p {
+  margin: 0;
 }
 
 footer .links {
-  width: 100%;
+  width:         100%;
+  margin-top:    38px;
+  margin-bottom: 50px;
 }
+
 
 footer .links div > a {
   display: block;
+  color:    #FFFFFF;
 }

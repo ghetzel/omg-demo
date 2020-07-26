@@ -25,15 +25,15 @@ page:
   actions:
   - name: Connect
     img:  connect
-    desc: '{{ lipsum 12 34 }}'
+    desc: 'Sunt in culpa qui officia deserunt mollit anim id est laborum'
 
   - name: Optimize
     img:  optimize
-    desc: '{{ lipsum 13 56 }}'
+    desc: 'Sunt in culpa qui officia deserunt mollit anim id est laborum'
 
   - name: Personalize
     img:  personalize
-    desc: '{{ lipsum 13 30 }}'
+    desc: 'Sunt in culpa qui officia deserunt mollit anim id est laborum'
 
   socials:
   - name: Facebook
@@ -57,11 +57,10 @@ page:
   <title>OMG :: {{ lipsum 1 }}. {{ lipsum 1 2 }}. {{ lipsum 1 4 }}.</title>
 
   <link rel="stylesheet" href="assets/css/bootstrap.min.css" crossorigin="anonymous" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk">
-  <link rel="stylesheet" href="assets/fonts/roboto/v20/font.css">
+  <link rel="stylesheet" href="assets/fonts/roboto/font.css">
   <link rel="stylesheet" href="assets/css/landing.css">
 </head>
 <body>
-  <div id="overlay"></div>
   <nav class="nav-upperlinks navbar navbar-expand-lg navbar-light">
     <div class="container collapse navbar-collapse">
       <ul class="navbar-nav ml-auto">
@@ -75,7 +74,6 @@ page:
         </li>
         {{ end }}
       </ul>
-
     </div>
   </nav>
 
@@ -87,7 +85,7 @@ page:
           <a class="nav-link" href="{{ $navlink.href }}">{{ $navlink.name }}</a>
         </li>
         {{ end }}
-        <li class="nav-item">
+        <li class="nav-item nav-demo">
           <span class="navbar-text">
             <button class="btn btn-walkthrough">Request a Demo</button>
           </span>
@@ -96,6 +94,7 @@ page:
     </div>
   </nav>
 
+  <div class="hero-under"></div>
   <article class="content">
     <section class="hero" class="container">
       <div class="row">
@@ -105,7 +104,7 @@ page:
             <div class="carousel-item active">
               <div class="d-block w-100">
                 <h1>{{ lipsum 8 }}</h1>
-                <p>{{ lipsum 19 }}<p>
+                <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</h2>
               </div>
             </div>
           </div>
@@ -120,8 +119,8 @@ page:
     </section>
 
     <section class="intro" class="container">
-      <h2>Sed risus pretium quam vitae tortor<wbr>condimentum lacinia quis duis at tellus at</h2>
-      <p>{{ lipsum 25 36 }}</p>
+      <h3>Sed risus pretium quam vitae tortor<br> condimentum lacinia quis duis at tellus at</h3>
+      <h4>Duis aute irure dolor in reprehenderit in voluptate velit esse<br>cillum dolore eu fugiat nulla pariatur sint occaecat cupidatat<br>non in reprehenderit in voluptate velit esse</h4>
     </section>
 
     <section class="actions" class="container">
@@ -137,8 +136,8 @@ page:
     <section class="brands" class="container">
       <div class="row">
         <div class="col-6">
-          <h3>Trusted by the world's <wbr>most successful brands</h3>
-          <p>{{ lipsum 17 92 }}.</p>
+          <h3>Trusted by the world's<br>most successful brands</h3>
+          <h4>Commodo nulla facilisi nullam vehicula ipsum a.<br>Amet volutpat consequat mauris nunc congue<br>nisi. Ipsum dolor sit amet consectetur.</h4>
         </div>
 
         <div class="col-6 carousel slide" data-ride="carousel" id="brandsCarousel">
@@ -146,7 +145,7 @@ page:
             <div class="carousel-item active">
               <div class="brands-carousel-item d-block w-100">
                 <img src="assets/img/logo-showtime.png">
-                <p>{{ lipsum 19 }}.</p>
+                <p>Ut dignissim tellus vel nisi bibendum, in hendrerit quam rutrum. Fusce sollicitudin pulvinar libero, at scelerisque elit mattis sit amet.</p>
               </div>
             </div>
           </div>
