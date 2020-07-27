@@ -1,4 +1,5 @@
 ---
+layout: none
 page:
   upperlinks:
   - name: "Login"
@@ -74,12 +75,13 @@ page:
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <base href="{{ pathjoin $.request.url.path `/` }}/">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>OMG :: {{ lipsum 1 }}. {{ lipsum 1 2 }}. {{ lipsum 1 4 }}.</title>
 
-  <link rel="stylesheet" href="assets/css/bootstrap.min.css" crossorigin="anonymous" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk">
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/fonts/roboto/font.css">
   <link rel="stylesheet" href="assets/css/landing.css">
   <link rel="stylesheet" href="assets/css/landing-lg.css">
@@ -252,7 +254,7 @@ page:
     </div>
   </footer>
 
-  <script type="text/javascript" src="assets/js/jquery-3.5.1.min.js" crossorigin="anonymous" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2"></script>
-  <script type="text/javascript" src="assets/js/bootstrap.bundle.min.js" crossorigin="anonymous" integrity="sha384-1CmrxMRARb6aLqgBO7yyAxTOQE2AKb9GfXnEo760AUcUmFx3ibVJJAzGytlQcNXd"></script>
+  <script type="text/javascript" src="assets/js/jquery-3.5.1.min.js"></script>
+  <script type="text/javascript" src="assets/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
