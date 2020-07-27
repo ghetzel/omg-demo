@@ -1,0 +1,72 @@
+@media (max-width: 1200px) {
+  .nav-upperlinks {
+    height: auto;
+  }
+
+  .nav-upperlinks .container {
+    margin: 0;
+  }
+
+  .nav-links {
+    height: auto;
+  }
+
+  .nav-links .navbar-nav {
+    margin: 0 auto;
+  }
+
+  .nav-links li.nav-demo {
+    min-width: 200px;
+  }
+
+  .content {
+    background-position: center top -3%, center bottom;
+  }
+
+  .content > section {
+    width: 100%;
+  }
+
+  section.container-fluid {
+    padding: 0;
+  }
+
+  section > .row {
+    padding: 0;
+    width:   100%;
+  }
+
+  section.hero .carousel {
+    padding:    0;
+    text-align: center;
+    height:     400px;
+  }
+
+  section.hero .carousel .carousel-item {
+    padding: 0 10vw;
+  }
+
+  section.hero .carousel h1 {
+    margin-top: 0.5em;
+  }
+
+  section.hero .carousel-indicators {
+    position:        absolute;
+    bottom:          2em;
+    margin-top:      5%;
+    justify-content: center;
+  }
+
+  section.hero .intro {
+    margin-top:    7em;
+    margin-bottom: 4em;
+  }
+
+  section.brands {
+    margin-bottom: 90px;
+  }
+
+  section.demo {
+    height: 350px;
+  }
+}

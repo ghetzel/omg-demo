@@ -22,6 +22,29 @@ page:
   - name: "Resources"
     href: "#resources"
 
+  heroCarousel:
+  - title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+    body:  "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+    init:  true
+    pause: 10000
+
+  - title: "{{ lipsum 6 14 }}"
+    body:  "{{ lipsum 14 37 }}"
+
+  - title: "{{ lipsum 9 92 }}"
+    body:  "{{ lipsum 11 105 }}"
+
+  brandsCarousel:
+  - logo: "showtime"
+    body: "Ut dignissim tellus vel nisi bibendum, in hendrerit quam rutrum. Fusce sollicitudin pulvinar libero, at scelerisque elit mattis sit amet."
+    init: true
+
+  - logo: "showtime"
+    body:  "{{ lipsum 14 54 }}"
+
+  - logo: "showtime"
+    body:  "{{ lipsum 11 82 }}"
+
   actions:
   - name: Connect
     img:  connect
@@ -59,9 +82,14 @@ page:
   <link rel="stylesheet" href="assets/css/bootstrap.min.css" crossorigin="anonymous" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk">
   <link rel="stylesheet" href="assets/fonts/roboto/font.css">
   <link rel="stylesheet" href="assets/css/landing.css">
+  <link rel="stylesheet" href="assets/css/landing-lg.css">
 </head>
 <body>
-  <nav class="nav-upperlinks navbar navbar-expand-lg navbar-light">
+  <!--<div id="overlay"></div>-->
+  <!--
+    UPPER LINKS NAV - A low key place to put links and details that are relevant on every page.
+  -->
+  <nav class="nav-upperlinks navbar navbar-expand-md navbar-light">
     <div class="container collapse navbar-collapse">
       <ul class="navbar-nav ml-auto">
         {{ range $ul := $.page.upperlinks }}
@@ -77,7 +105,10 @@ page:
     </div>
   </nav>
 
-  <nav class="nav-links navbar navbar-expand-lg navbar-light">
+  <!--
+    PRIMARY NAV - Primary site navigation
+  -->
+  <nav class="nav-links navbar navbar-expand-md navbar-light">
     <div class="container collapse navbar-collapse">
       <ul class="navbar-nav ml-auto">
         {{ range $navlink := $.page.navlinks }}
@@ -94,36 +125,48 @@ page:
     </div>
   </nav>
 
-  <div class="hero-under"></div>
+  <!--
+    HERO BANNER - Featured items carousel
+  -->
   <article class="content">
-    <section class="hero" class="container">
+    <div class="bubbles"></div>
+    <section class="hero container-fluid">
       <div class="row">
-        <img class="hero-image" src="assets/img/apple-iphone.png">
+        <div class="hero-image d-none d-xl-block"></div>
         <div class="carousel slide" data-ride="carousel" id="heroCarousel">
           <div class="carousel-inner">
-            <div class="carousel-item active">
+            {{ range $ci := $.page.heroCarousel }}
+            <div
+              class="carousel-item{{ if $ci.init }} active{{ end }}"
+              data-interval="{{ or $ci.pause `5000` }}"
+              data-pause="hover"
+              data-wrap="true"
+              data-touch="true"
+            >
               <div class="d-block w-100">
-                <h1>{{ lipsum 8 }}</h1>
-                <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</h2>
+                <h1>{{ $ci.title }}</h1>
+                <h2>{{ $ci.body }}</h2>
               </div>
             </div>
+            {{ end }}
           </div>
 
           <ol class="carousel-indicators">
-            <li data-target="#heroCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#heroCarousel" data-slide-to="1"></li>
-            <li data-target="#heroCarousel" data-slide-to="2"></li>
+            {{ range $i, $ci := $.page.heroCarousel }}
+            <li data-target="#heroCarousel" data-slide-to="{{ $i }}" class="{{ if $ci.init }}active{{ end }}"></li>
+            {{ end }}
           </ol>
         </div>
       </div>
+
+      <div class="intro row">
+        <h3>Sed risus pretium quam vitae tortor<br> condimentum lacinia quis duis at tellus at</h3>
+        <h4>Duis aute irure dolor in reprehenderit in voluptate velit esse<br>cillum dolore eu fugiat nulla pariatur sint occaecat cupidatat<br>non in reprehenderit in voluptate velit esse</h4>
+      </div>
     </section>
 
-    <section class="intro" class="container">
-      <h3>Sed risus pretium quam vitae tortor<br> condimentum lacinia quis duis at tellus at</h3>
-      <h4>Duis aute irure dolor in reprehenderit in voluptate velit esse<br>cillum dolore eu fugiat nulla pariatur sint occaecat cupidatat<br>non in reprehenderit in voluptate velit esse</h4>
-    </section>
-
-    <section class="actions" class="container">
+    <!-- ACTIONS SECTION -->
+    <section class="actions" class="container-fluid">
       {{ range $action := $.page.actions }}
       <div class="action">
         <img src="assets/img/action-{{ $action.img }}.png">
@@ -133,21 +176,32 @@ page:
       {{ end }}
     </section>
 
-    <section class="brands" class="container">
+    <!-- LOGOS -->
+    <section class="brands" class="container-fluid">
       <div class="row">
         <div class="col-6">
           <h3>Trusted by the world's<br>most successful brands</h3>
           <h4>Commodo nulla facilisi nullam vehicula ipsum a.<br>Amet volutpat consequat mauris nunc congue<br>nisi. Ipsum dolor sit amet consectetur.</h4>
         </div>
 
-        <div class="col-6 carousel slide" data-ride="carousel" id="brandsCarousel">
+        <div
+          id="brandsCarousel"
+          class="col-6 carousel slide"
+          data-ride="carousel"
+        >
           <div class="carousel-inner">
-            <div class="carousel-item active">
+            {{ range $ci := $.page.brandsCarousel }}
+            <div
+              class="carousel-item{{ if $ci.init }} active{{ end }}"
+              data-wrap="true"
+              data-touch="true"
+            >
               <div class="brands-carousel-item d-block w-100">
-                <img src="assets/img/logo-showtime.png">
-                <p>Ut dignissim tellus vel nisi bibendum, in hendrerit quam rutrum. Fusce sollicitudin pulvinar libero, at scelerisque elit mattis sit amet.</p>
+                <img src="assets/img/logo-{{ $ci.logo }}.png">
+                <p>{{ $ci.body }}</p>
               </div>
             </div>
+            {{ end }}
           </div>
 
           <ol class="carousel-indicators">
@@ -159,12 +213,18 @@ page:
       </div>
     </section>
 
-    <section class="demo" class="container">
-      <h4>Ready for a personal walkthrough?</h4>
-      <button class="btn btn-walkthrough">Request a Demo</button>
+    <!-- CALL TO ACTION -->
+    <section class="demo" class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <h4>Ready for a personal walkthrough?</h4>
+          <button class="btn btn-walkthrough">Request a Demo</button>
+        </div>
+      </div>
     </section>
   </article>
 
+  <!-- FOOTER LINKS, SOCIAL, AND COPYRIGHTS -->
   <footer>
     <div class="social-links">
       {{ range $social := $.page.socials }}
@@ -176,18 +236,18 @@ page:
 
     <div class="row links">
       <div class="col-4">
-        <a href="#link1">Link 1</a>
-        <a href="#link2">Link 2</a>
+        <a href="#link1">About Us</a>
+        <a href="#link2">Leadership</a>
       </div>
 
       <div class="col-4">
-        <a href="#link3">Link 3</a>
-        <a href="#link4">Link 4</a>
+        <a href="#link3">Investor Relations</a>
+        <a href="#link4">Careers</a>
       </div>
 
       <div class="col-4">
-        <a href="#link5">Link 5</a>
-        <a href="#link6">Link 6</a>
+        <a href="#link5">Terms of Use</a>
+        <a href="#link6">Privacy Policy</a>
       </div>
     </div>
   </footer>
